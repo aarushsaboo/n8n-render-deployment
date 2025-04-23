@@ -1,0 +1,178 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6bd00b01-c22f-4a2a-948f-11645a7b55d4",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "sendTo": "aarush.saboo@gmail.com",
+        "subject": "Hello",
+        "message": "Hello how are you?",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        0
+      ],
+      "id": "a5d8b602-b9eb-4d7f-a3fd-f096d4f4ceaf",
+      "name": "Gmail",
+      "webhookId": "4a00e052-d9df-4bd2-a832-55f5703d38ca",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "QvqDkwvJyIcapm3f",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "11wJdZNsOc7NMNoB4AxB0_AX7mXelfKht0uD9ifASrYo",
+          "mode": "list",
+          "cachedResultName": "Testing n8n.",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11wJdZNsOc7NMNoB4AxB0_AX7mXelfKht0uD9ifASrYo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11wJdZNsOc7NMNoB4AxB0_AX7mXelfKht0uD9ifASrYo/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Age",
+              "displayName": "Age",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "cellFormat": "USER_ENTERED",
+          "handlingExtraData": "insertInNewColumn",
+          "useAppend": false
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        440,
+        -220
+      ],
+      "id": "46b636f6-a552-4192-a4f0-1a74d3fffc18",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "hrcCDNLkEVHfsafs",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"Name\": \"Rishabh\",\n  \"Email\": \"rishabh@gmail.com\",\n  \"Age\": 20\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "9cf5ea32-62b2-49fe-abef-e502f0e4a4fe",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8e7970f2-c53e-4755-848e-f073444e4b38",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5302ffb1a1a33da8070dfbe06ab7599ad749a9afb52f1bc31a10fc188cd9b93f"
+  },
+  "id": "4TML1PauDtm6QeTb",
+  "tags": []
+}

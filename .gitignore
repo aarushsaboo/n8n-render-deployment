@@ -1,0 +1,16 @@
+# Node.js dependencies
+node_modules/
+
+# n8n database and storage
+.n8n/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Operating System Files
+.DS_Store
+Thumbs.db
