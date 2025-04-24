@@ -1,3 +1,6 @@
+docker run -it --rm --name n8n -p 5678:5678 -e N8N_BASIC_AUTH_ACTIVE=true -e N8N_BASIC_AUTH_USER=admin -e N8N_BASIC_AUTH_PASSWORD=SecurePassword123! -v ${HOME}/.n8n:/home/node/.n8n n8nio/n8n
+
+
 # n8n Workflow Deployment on Render
 
 This repository contains the necessary files to deploy your n8n workflow on Render. n8n is a workflow automation tool that allows you to connect various services and automate tasks without coding.
